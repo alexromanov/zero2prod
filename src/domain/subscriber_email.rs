@@ -21,10 +21,10 @@ impl AsRef<str> for SubscriberEmail {
 
 #[cfg(test)]
 mod tests {
-    use fake::faker::internet::en::SafeEmail;
-    use fake::Fake;
     use super::SubscriberEmail;
     use claims::assert_err;
+    use fake::faker::internet::en::SafeEmail;
+    use fake::Fake;
 
     #[test]
     fn empty_string_is_rejected() {
@@ -49,7 +49,6 @@ mod tests {
         let email = SafeEmail().fake();
         claims::assert_ok!(SubscriberEmail::parse(email));
     }
-
 
     #[derive(Debug, Clone)]
     struct ValidEmailFixture(pub String);
