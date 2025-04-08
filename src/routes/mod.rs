@@ -1,8 +1,9 @@
 mod health_check;
-mod subscriptions;
+mod newsletters;
 mod subscriotions_confirm;
+mod subscriptions;
 
 pub use health_check::*;
-pub use subscriptions::*;
+pub use newsletters::*;
 pub use subscriotions_confirm::*;
-
+pub use subscriptions::*;

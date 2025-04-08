@@ -17,10 +17,7 @@ impl EmailClient {
         authorization_token: Secret<String>,
         timeout: std::time::Duration,
     ) -> Self {
-        let http_client = Client::builder()
-            .timeout(timeout)
-            .build()
-            .unwrap();
+        let http_client = Client::builder().timeout(timeout).build().unwrap();
         Self {
             http_client,
             base_url,
@@ -114,8 +111,8 @@ mod tests {
 
     fn email_client(base_url: String) -> EmailClient {
         EmailClient::new(
-            base_url, 
-            email(), 
+            base_url,
+            email(),
             Secret::new(Faker.fake()),
             std::time::Duration::from_millis(200),
         )
@@ -166,8 +163,7 @@ mod tests {
         let mock_server = MockServer::start().await;
         let email_client = email_client(mock_server.uri());
 
-        let response = ResponseTemplate::new(200)
-            .set_delay(std::time::Duration::from_secs(180));
+        let response = ResponseTemplate::new(200).set_delay(std::time::Duration::from_secs(180));
 
         Mock::given(any())
             .respond_with(response)
