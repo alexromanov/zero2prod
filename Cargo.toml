@@ -41,6 +41,7 @@ validator = "0.16"
 tracing-log = "0.2.0"
 tracing-actix-web = "0.7"
 secrecy = { version = "0.8", features = ["serde"] }
+thiserror = "1.0.24"
 
 [dev-dependencies]
 quickcheck = "0.9.2"
